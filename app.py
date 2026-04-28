@@ -29,7 +29,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(32))
 # 安全: 限制CORS来源
 ALLOWED_ORIGINS = os.environ.get('ALLOWED_ORIGINS', 'https://wget.hackbyte.io').split(',')
-socketio = SocketIO(app, cors_allowed_origins=ALLOWED_ORIGINS, async_mode='threading')
+#socketio = SocketIO(app, cors_allowed_origins=ALLOWED_ORIGINS, async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins='*')
 
 # 安全: 速率限制
 from collections import defaultdict
